@@ -1,13 +1,19 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Section from "./components/Section";
+import Past from "./components/Past";
+import Pastsponsor from "./components/Pastsponsor";
+import Rank from "./components/Rank";
+import Footer from "./components/Footer"; // 👈 add this
 
 function App() {
   return (
     <>
       <Navbar />
       <Hero />
-      <Section />
+      <Past />
+      <Pastsponsor />
+      <Rank />
+      <Footer /> {/* 👈 footer added */}
     </>
   );
 }
