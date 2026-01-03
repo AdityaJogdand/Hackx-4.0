@@ -365,8 +365,8 @@ export default function Hero() {
           src={f1}
           alt="F1 Car"
           style={{ y: carY, scale: carScale }}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="relative z-10 w-[95%] sm:w-[90%] md:w-[85%] max-w-5xl object-contain drop-shadow-2xl"
         />
