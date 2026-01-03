@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Past from "./components/About";
+import About from "./components/About";
 import Pastsponsor from "./components/Pastsponsor";
 import Prizes from "./components/Prizes";
 import Footer from "./components/Footer";
@@ -15,7 +15,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Past />
+      <About />
       <Pastsponsor />
       <Schedule />
       <ProblemStatements />
