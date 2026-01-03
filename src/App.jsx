@@ -8,6 +8,7 @@ import ProblemStatements from "./components/ProblemStatements";
 import PastGlimpse from "./components/PastGlimpse";
 import Schedule from "./components/Schedule";
 import FAQ from "./components/FAQ";
+import Rules from "./components/Rules";
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
       <Navbar />
       <Hero />
       <Past />
+      <Pastsponsor />
       <Schedule />
       <ProblemStatements />
       <Prizes />
-      <Pastsponsor />
       <PastGlimpse />
+      <Rules/>
       <FAQ />
       <Footer />
     </>

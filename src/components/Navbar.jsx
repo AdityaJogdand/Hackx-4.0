@@ -45,6 +45,7 @@ export default function Navbar() {
             <li><a href="#schedule" className="hover:text-black transition">Schedule</a></li>
             <li><a href="#problems" className="hover:text-black transition">Problems</a></li>
             <li><a href="#prizes" className="hover:text-black transition">Prizes</a></li>
+            <li><a href="#rules" className="hover:text-black transition">Rules</a></li>
             <li><a href="#glimpse" className="hover:text-black transition">Glimpse</a></li>
             <li><a href="#faqs" className="hover:text-black transition">FAQs</a></li>
             <li><a href="#contacts" className="hover:text-black transition">Contacts</a></li>
@@ -80,6 +81,12 @@ export default function Navbar() {
               <a href="#prizes" onClick={closeMenu}
                 className="block py-2 px-4 hover:bg-gray-50 rounded">
                 Prizes
+              </a>
+            </li>
+            <li>
+              <a href="#rules" onClick={closeMenu}
+                className="block py-2 px-4 hover:bg-gray-50 rounded">
+                Rules
               </a>
             </li>
             <li>

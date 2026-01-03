@@ -2,7 +2,7 @@ import DomeGallery from './DomeGallery';
 
 export default function PastGlimpse() {
   return (
-    <div id="glimpse" className="relative w-screen h-screen bg-white overflow-hidden">
+    <div id="glimpse" className="hidden md:block relative w-screen h-screen bg-white overflow-hidden">
       {/* F1 Themed Header - HUD (Orange Version) */}
       <header className="absolute top-0 left-0 w-full z-40 p-6 md:p-10 pointer-events-none">
         <div className="flex items-start justify-between max-w-[1920px] mx-auto">

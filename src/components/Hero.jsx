@@ -100,7 +100,7 @@ export default function Hero() {
           <div className="bg-white backdrop-blur-xl rounded-2xl px-5 py-3 shadow-2xl border border-gray-200 flex-1">
             <div className="text-[9px] uppercase tracking-widest text-red-600 font-bold mb-1">Prizes</div>
             <div className="text-4xl font-black text-gray-800">
-              ₹95K
+              ₹75K
             </div>
           </div>
 
@@ -342,12 +342,14 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-6 md:mt-8 mb-6 md:mb-[30px] flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto px-4"
         >
-          <button className="px-6 py-3 rounded-full bg-gray-200 hover:bg-gray-300 shadow-md transition-colors">
+          <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-gray-200 hover:bg-gray-300 shadow-md transition-colors">
             Register Now
           </button>
-          <button className="px-6 py-3 rounded-full bg-red-600 text-white hover:bg-red-700 shadow-lg transition-colors">
-            View Schedule
-          </button>
+          <a href="#schedule" className="w-full sm:w-auto">
+            <button className="w-full px-6 py-3 rounded-full bg-red-600 text-white hover:bg-red-700 shadow-lg transition-colors">
+              View Schedule
+            </button>
+          </a>
         </motion.div>
       </div>
 

@@ -1,18 +1,30 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { MapPin, Flag, Zap, Coffee, ShieldCheck, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 
 const scheduleData = [
-  { time: "08:30", event: "Reporting", details: "Initial scrutineering and paddock entry.", strategy: "Full tank, hard tires.", status: "CHECK_IN", icon: <MapPin size={24} /> },
-  { time: "09:00", event: "Registrations", details: "Driver registration and livery collection.", strategy: "Aero setup optimization.", status: "OFFICIALS", icon: <ShieldCheck size={24} /> },
-  { time: "10:30", event: "Opening Ceremony", details: "Formation lap before green flag.", strategy: "System diagnostics complete.", status: "FORMATION", icon: <Zap size={24} /> },
-  { time: "12:00", event: "Hackathon Starts", details: "Green flag! The 24-hour race begins.", strategy: "ERS enabled. Maximum energy deployment.", status: "RACING", icon: <Flag size={24} /> },
-  { time: "19:00", event: "Mentorship I", details: "Mid-race pit stop for strategy tuning.", strategy: "Data telemetry analysis.", status: "PIT_STOP", icon: <Coffee size={24} /> },
-  { time: "09:00", event: "Mentorship II", details: "Final sector adjustment.", strategy: "Push for the fastest lap.", status: "FINAL_STINT", icon: <Zap size={24} /> },
-  { time: "16:00", event: "Closing Ceremony", details: "The checkered flag. Podium celebration.", strategy: "Victory lap.", status: "FINISHED", icon: <Flag size={24} /> },
+  { time: "Feb 28, 8:30 AM", event: "Reporting", details: "Initial scrutineering and paddock entry.", strategy: "Full tank, hard tires.", status: "CHECK_IN", icon: <MapPin size={24} /> },
+  { time: "Feb 28, 9:00 AM", event: "Registrations begins", details: "Driver registration and livery collection.", strategy: "Aero setup optimization.", status: "OFFICIALS", icon: <ShieldCheck size={24} /> },
+  { time: "Feb 28, 10:30 AM", event: "Opening Ceremony", details: "Formation lap before green flag.", strategy: "System diagnostics complete.", status: "FORMATION", icon: <Zap size={24} /> },
+  { time: "Feb 28, 12:00 PM", event: "Hackathon starts", details: "Green flag! The 24-hour race begins.", strategy: "ERS enabled. Maximum energy deployment.", status: "RACING", icon: <Flag size={24} /> },
+  { time: "Feb 28, 5:00 PM", event: "High Tea", details: "Afternoon refreshment break.", strategy: "Fuel and tire management.", status: "REFRESH", icon: <Coffee size={24} /> },
+  { time: "Feb 28, 7:00 PM", event: "Mentorship round I", details: "Mid-race pit stop for strategy tuning.", strategy: "Data telemetry analysis.", status: "PIT_STOP", icon: <Zap size={24} /> },
+  { time: "Feb 28, 8:00 PM", event: "Dinner", details: "Evening fuel stop.", strategy: "Energy replenishment.", status: "DINNER", icon: <Coffee size={24} /> },
+  { time: "Feb 29, 8:30 AM", event: "Breakfast", details: "Morning energy boost.", strategy: "Fresh tires, new strategy.", status: "BREAKFAST", icon: <Coffee size={24} /> },
+  { time: "Feb 29, 9:00 AM", event: "Mentorship round II", details: "Final sector adjustment.", strategy: "Push for the fastest lap.", status: "FINAL_STINT", icon: <Zap size={24} /> },
+  { time: "Feb 29, 12:00 PM", event: "Hackathon ends", details: "Final lap completed. Submissions closed.", strategy: "Cool down lap.", status: "FINISH", icon: <Flag size={24} /> },
+  { time: "Feb 29, 12:15 PM", event: "Lunch", details: "Post-race refreshment.", strategy: "Recovery mode.", status: "LUNCH", icon: <Coffee size={24} /> },
+  { time: "Feb 29, 1:00 PM", event: "Evaluation Begins", details: "Technical inspection and judging.", strategy: "Stewards review.", status: "JUDGING", icon: <ShieldCheck size={24} /> },
+  { time: "Feb 29, 4:00 PM", event: "Results & Closing ceremony", details: "The checkered flag. Podium celebration.", strategy: "Victory lap.", status: "PODIUM", icon: <Flag size={24} /> },
 ];
 
 export default function Schedule() {
-  const { scrollYProgress } = useScroll();
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
   
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -39,7 +51,7 @@ export default function Schedule() {
           </h2>
         </div>
 
-        <div className="relative">
+        <div ref={containerRef} className="relative">
           {/* Central Technical Line (The Track) - Updated to Teal */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-zinc-100 -translate-x-1/2">
             <motion.div 
@@ -70,7 +82,7 @@ function ScheduleItem({ item, index }) {
       className={`relative flex items-center justify-between md:gap-20 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
     >
       {/* Time Badge */}
-      <div className={`hidden md:block w-full text-zinc-100 font-black italic text-6xl lg:text-8xl tracking-tighter ${isEven ? 'text-right' : 'text-left'}`}>
+      <div className={`hidden md:block w-full text-zinc-300 font-bold italic text-3xl md:text-4xl tracking-tight ${isEven ? 'text-right' : 'text-left'}`}>
         {item.time}
       </div>
 
