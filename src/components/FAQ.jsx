@@ -5,21 +5,102 @@ import { ChevronDown, Radio } from 'lucide-react';
 const faqs = [
   {
     q: "When and where will HackX be held?",
-    a: "HackX 4.0 will be held on February 28 - March 1, 2026 at NMIMS University, Navi Mumbai. The event starts at 8:30 AM on Day 1 with reporting and concludes at 4:00 PM on Day 2 with the closing ceremony."
+    a: "HackX 4.0 will be held on February 28 – March 1, 2026 at NMIMS University, Navi Mumbai."
+  },
+  {
+    q: "How do I get to the venue?",
+    a: "The venue is located near Pethpada Metro Station in Kharghar, Navi Mumbai. Detailed directions can be found on maps."
   },
   {
     q: "Who can participate in HackX?",
-    a: "College students across India from any discipline are welcome to participate. Whether you are a developer, designer, or entrepreneur, there is a track for you."
+    a: "HackX is open to all college students passionate about technology, innovation, and social responsibility. Teams can consist of participants from different schools or institutes."
   },
   {
     q: "How many members can be in a team?",
-    a: "Teams must consist of 2-4 members. Equal contribution from all team members is mandatory."
+    a: "Each team must have 2–4 members (Solo participants are not allowed)."
   },
   {
     q: "Is there a registration fee?",
-    a: "Yes, there is a refundable registration fee of ₹600 per team required to confirm your slot."
+    a: "Yes, there is a refundable registration fee of ₹500 per team."
+  },
+  {
+    q: "What is the refund timeline?",
+    a: "The registration fee refund will be processed within 14 working days after the completion of the hackathon."
+  },
+  {
+    q: "How do I register for HackX?",
+    a: "Registration is done through Unstop. Visit the official event page on Unstop and complete the registration by paying the fee."
+  },
+  {
+    q: "What is the submission format?",
+    a: `Teams must submit their projects with the following details:
+    - Problem Statement
+    - Proposed Solution
+    - Impact of Solution
+    - Applied Technologies
+    - Project Details
+    - Future Scope and Feasibility
+
+    A link to the GitHub repository or a Drive link containing the submission must also be included.`
+},
+  {
+    q: "What are the judging criteria?",
+    a: `Teams will be judged based on:
+        - Creativity
+        - Technical Implementation
+        - Practicality
+        - Presentation`
+  },
+  {
+    q: "Can teams be disqualified?",
+    a: `Yes, teams can be disqualified for:
+        - Inappropriate behavior
+        - Violating rules
+        - Submitting pre-built projects
+        - Failing to adhere to the code of conduct`
+  },
+  {
+    q: "What should I bring to the hackathon?",
+    a: "Participants should bring their laptops, chargers, headphones, identification documents, and any essential tools or materials they may need. It is recommended to wear comfortable clothing and carry personal care items."
+  },
+  {
+    q: "Can I work on an idea I already have?",
+    a: "No, participants must work on the provided problem statements during HackX. All solutions must comply with the event's guidelines."
+  },
+  {
+    q: "Will there be mentors available?",
+    a: "Yes, experienced mentors will be on-site to guide and assist you throughout the event."
+  },
+  {
+    q: "What resources will be provided?",
+    a: "We will provide a workspace, Wi-Fi, power outlets, mentorship, meals, and refreshments."
+  },
+  {
+    q: "Is there any on-the-spot registration?",
+    a: "No, on-the-spot registration will not be available. Ensure to complete your registration before the deadline through Unstop."
+  },
+  {
+    q: "Is there a participation certificate?",
+    a: "Yes, all participants will receive a certificate of participation."
+  },
+  {
+    q: "What are the prizes?",
+    a: "Exciting cash prizes, goodies, internships, and sponsor rewards await winners."
+  },
+  {
+    q: "Can I participate online?",
+    a: "No, HackX is an on-site hackathon."
+  },
+  {
+    q: "What happens if I face technical difficulties?",
+    a: "The organizing team and mentors will assist you during the event."
+  },
+  {
+    q: "Who should I contact for queries?",
+    a: "For any questions, reach out to the Points of Contact (POCs) listed on the website or the brochure."
   }
 ];
+
 
 const FAQItem = ({ item, i, accentColor }) => {
   const [isOpen, setIsOpen] = useState(false);
