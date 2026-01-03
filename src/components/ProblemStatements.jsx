@@ -1,7 +1,15 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 export default function ProblemStatements() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
     <div
       id="problems"
+      ref={ref}
       className="min-h-screen bg-white relative overflow-hidden flex items-center justify-center px-4"
     >
       {/* Racing stripes */}
@@ -9,41 +17,30 @@ export default function ProblemStatements() {
       <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50" />
 
       {/* ================= CENTER CONTENT ================= */}
-      <div className="relative z-10 text-center animate-fade-in-up">
-        <h1 className="px-4 text-5xl md:text-7xl font-black uppercase italic tracking-tight md:tracking-tighter
-                       text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-600">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-10 text-center"
+      >
+        <h2 className="px-4 text-4xl md:text-6xl font-black uppercase italic tracking-tight md:tracking-tighter
+                       text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-600 mb-8">
+          Problem Statements
+        </h2>
+        
+        <h1 className="px-4 text-5xl md:text-7xl font-black uppercase tracking-wide text-gray-700">
           Coming Soon
         </h1>
-
-        <p className="mt-4 text-zinc-400 text-sm md:text-base tracking-widest uppercase font-bold animate-fade-in delay-200">
-          Problem Statements Will Be Revealed
-        </p>
 
         {/* Sliding loading line */}
         <div className="mt-8 w-64 h-1 mx-auto bg-zinc-200 rounded-full overflow-hidden">
           <div className="h-full w-20 bg-gradient-to-r from-transparent via-red-600 to-transparent animate-slide" />
         </div>
-      </div>
+      </motion.div>
 
       {/* ================= ANIMATION STYLES ================= */}
       <style>
         {`
-          @keyframes fadeInUp {
-            0% {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            100% {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-          }
-
           @keyframes slide {
             0% {
               transform: translateX(-100%);
@@ -53,24 +50,8 @@ export default function ProblemStatements() {
             }
           }
 
-          .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-          }
-
-          .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-          }
-
           .animate-slide {
             animation: slide 1.5s ease-in-out infinite;
-          }
-
-          .delay-200 {
-            animation-delay: 0.2s;
-          }
-
-          .delay-300 {
-            animation-delay: 0.3s;
           }
         `}
       </style>
