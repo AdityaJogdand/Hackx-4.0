@@ -14,7 +14,7 @@ export default function RulesRegulations() {
     "Team presence is required for the kickoff, midway check-ins, mentorship rounds I & II, and final presentations.",
     "The organizers reserve the right to disqualify any team for inappropriate behavior or rule violations.",
     "The final decision will be given by the judges and will be binding.",
-    "The venue gates will be closed from 10:00 PM on February 28th, 2025 to 8:00 AM on March 1st, 2025. No entry or exit will be permitted during this time frame.",
+    "The venue gates will be closed from 10:00 PM on February 28th, 2026 to 8:00 AM on March 1st, 2026. No entry or exit will be permitted during this time frame.",
     "In case of any queries, reach out to the POCs."
   ];
 
