@@ -22,7 +22,7 @@ const Rank = () => {
     {
       id: "03",
       pos: "Third",
-      amount: "5,000",
+      amount: "15,000",
       color: "#fafaf9", // Warm Stone
       hoverBg: "#44403c", // Stone 800
       accent: "text-amber-700"
