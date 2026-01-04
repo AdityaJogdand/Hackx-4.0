@@ -10,12 +10,12 @@ const scheduleData = [
   { time: "Feb 28, 5:00 PM", event: "High Tea", details: "Afternoon refreshment break.", strategy: "Fuel and tire management.", status: "REFRESH", icon: <Coffee size={24} /> },
   { time: "Feb 28, 7:00 PM", event: "Mentorship round I", details: "Mid-race pit stop for strategy tuning.", strategy: "Data telemetry analysis.", status: "PIT_STOP", icon: <Zap size={24} /> },
   { time: "Feb 28, 8:00 PM", event: "Dinner", details: "Evening fuel stop.", strategy: "Energy replenishment.", status: "DINNER", icon: <Coffee size={24} /> },
-  { time: "Feb 29, 8:30 AM", event: "Breakfast", details: "Morning energy boost.", strategy: "Fresh tires, new strategy.", status: "BREAKFAST", icon: <Coffee size={24} /> },
-  { time: "Feb 29, 9:00 AM", event: "Mentorship round II", details: "Final sector adjustment.", strategy: "Push for the fastest lap.", status: "FINAL_STINT", icon: <Zap size={24} /> },
-  { time: "Feb 29, 12:00 PM", event: "Hackathon ends", details: "Final lap completed. Submissions closed.", strategy: "Cool down lap.", status: "FINISH", icon: <Flag size={24} /> },
-  { time: "Feb 29, 12:15 PM", event: "Lunch", details: "Post-race refreshment.", strategy: "Recovery mode.", status: "LUNCH", icon: <Coffee size={24} /> },
-  { time: "Feb 29, 1:00 PM", event: "Evaluation Begins", details: "Technical inspection and judging.", strategy: "Stewards review.", status: "JUDGING", icon: <ShieldCheck size={24} /> },
-  { time: "Feb 29, 4:00 PM", event: "Results & Closing ceremony", details: "The checkered flag. Podium celebration.", strategy: "Victory lap.", status: "PODIUM", icon: <Flag size={24} /> },
+  { time: "Mar 1, 8:30 AM", event: "Breakfast", details: "Morning energy boost.", strategy: "Fresh tires, new strategy.", status: "BREAKFAST", icon: <Coffee size={24} /> },
+  { time: "Mar 1, 9:00 AM", event: "Mentorship round II", details: "Final sector adjustment.", strategy: "Push for the fastest lap.", status: "FINAL_STINT", icon: <Zap size={24} /> },
+  { time: "Mar 1, 12:00 PM", event: "Hackathon ends", details: "Final lap completed. Submissions closed.", strategy: "Cool down lap.", status: "FINISH", icon: <Flag size={24} /> },
+  { time: "Mar 1, 12:15 PM", event: "Lunch", details: "Post-race refreshment.", strategy: "Recovery mode.", status: "LUNCH", icon: <Coffee size={24} /> },
+  { time: "Mar 1, 1:00 PM", event: "Evaluation Begins", details: "Technical inspection and judging.", strategy: "Stewards review.", status: "JUDGING", icon: <ShieldCheck size={24} /> },
+  { time: "Mar 1, 4:00 PM", event: "Results & Closing ceremony", details: "The checkered flag. Podium celebration.", strategy: "Victory lap.", status: "PODIUM", icon: <Flag size={24} /> },
 ];
 
 export default function Schedule() {
