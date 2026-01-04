@@ -19,7 +19,7 @@ export default function RulesRegulations() {
   ];
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden py-16 px-4">
+    <div id="rules" className="min-h-screen bg-white relative overflow-hidden py-16 px-4">
       {/* Racing stripes */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
