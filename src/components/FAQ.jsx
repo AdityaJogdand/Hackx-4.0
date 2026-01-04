@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ChevronDown, Radio } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Radio } from "lucide-react";
+
+/* ================= FAQ DATA ================= */
 
 const faqs = [
   {
@@ -33,111 +35,92 @@ const faqs = [
   },
   {
     q: "What is the submission format?",
-    a: `Teams must submit their projects with the following details:
-    - Problem Statement
-    - Proposed Solution
-    - Impact of Solution
-    - Applied Technologies
-    - Project Details
-    - Future Scope and Feasibility
+    a: `Teams must submit:
+- Problem Statement
+- Proposed Solution
+- Impact
+- Technologies
+- Project Details
+- Future Scope
 
-    A link to the GitHub repository or a Drive link containing the submission must also be included.`
-},
+A GitHub or Drive link is mandatory.`
+  },
   {
     q: "What are the judging criteria?",
-    a: `Teams will be judged based on:
-        - Creativity
-        - Technical Implementation
-        - Practicality
-        - Presentation`
+    a: "Creativity, technical implementation, practicality, and presentation."
   },
   {
     q: "Can teams be disqualified?",
-    a: `Yes, teams can be disqualified for:
-        - Inappropriate behavior
-        - Violating rules
-        - Submitting pre-built projects
-        - Failing to adhere to the code of conduct`
+    a: "Yes, for rule violations, inappropriate behavior, or submitting pre-built projects."
   },
   {
-    q: "What should I bring to the hackathon?",
-    a: "Participants should bring their laptops, chargers, headphones, identification documents, and any essential tools or materials they may need. It is recommended to wear comfortable clothing and carry personal care items."
+    q: "What should I bring?",
+    a: "Laptop, charger, ID, essentials, and comfortable clothing."
   },
   {
-    q: "Can I work on an idea I already have?",
-    a: "No, participants must work on the provided problem statements during HackX. All solutions must comply with the event's guidelines."
+    q: "Will there be mentors?",
+    a: "Yes, experienced mentors will be available throughout the hackathon."
   },
   {
-    q: "Will there be mentors available?",
-    a: "Yes, experienced mentors will be on-site to guide and assist you throughout the event."
+    q: "Is there on-spot registration?",
+    a: "No. Registration must be completed beforehand."
   },
   {
-    q: "What resources will be provided?",
-    a: "We will provide a workspace, Wi-Fi, power outlets, mentorship, meals, and refreshments."
-  },
-  {
-    q: "Is there any on-the-spot registration?",
-    a: "No, on-the-spot registration will not be available. Ensure to complete your registration before the deadline through Unstop."
-  },
-  {
-    q: "Is there a participation certificate?",
-    a: "Yes, all participants will receive a certificate of participation."
-  },
-  {
-    q: "What are the prizes?",
-    a: "Exciting cash prizes, goodies, internships, and sponsor rewards await winners."
-  },
-  {
-    q: "Can I participate online?",
+    q: "Is this online?",
     a: "No, HackX is an on-site hackathon."
-  },
-  {
-    q: "What happens if I face technical difficulties?",
-    a: "The organizing team and mentors will assist you during the event."
-  },
-  {
-    q: "Who should I contact for queries?",
-    a: "For any questions, reach out to the Points of Contact (POCs) listed on the website or the brochure."
   }
 ];
 
+/* ================= FAQ ITEM ================= */
 
-const FAQItem = ({ item, i, accentColor }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  
+const FAQItem = ({ item, index, accentColor }) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="mb-6">
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-full flex items-center justify-between p-8 border transition-all rounded-[32px] text-left group
-          ${isOpen ? 'bg-zinc-900 border-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.2)]' : 'bg-zinc-900/50 border-zinc-800 hover:border-blue-500/50 hover:bg-zinc-900'}`}
+      <button
+        onClick={() => setOpen(!open)}
+        className={`w-full flex items-center justify-between p-8 rounded-[32px] border text-left transition-all
+        ${
+          open
+            ? "bg-zinc-900 border-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.2)]"
+            : "bg-zinc-900/50 border-zinc-800 hover:border-blue-500/50 hover:bg-zinc-900"
+        }`}
       >
-        <div className="flex items-center space-x-6">
-          <motion.span 
+        <div className="flex items-center gap-6">
+          <span
             style={{ color: accentColor }}
             className="font-black italic text-xl"
           >
-            0{i+1}
-          </motion.span>
-          <span className="font-bold text-sm uppercase tracking-widest text-white">{item.q}</span>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="font-bold text-sm uppercase tracking-widest text-white">
+            {item.q}
+          </span>
         </div>
-        <motion.div style={{ color: accentColor }}>
-          <ChevronDown className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-        </motion.div>
+
+        <ChevronDown
+          className={`transition-transform duration-300 text-blue-500 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
       </button>
 
       <AnimatePresence>
-        {isOpen && (
+        {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden"
           >
-            <div className="p-10 text-sm text-zinc-400 leading-relaxed border-x border-b border-zinc-800 rounded-b-[32px] bg-zinc-900/30">
-              <div className="flex gap-4">
-                <motion.div style={{ backgroundColor: accentColor }} className="w-1 h-auto opacity-50 rounded-full" />
-                <p>{item.a}</p>
+            <div className="p-10 bg-zinc-900/30 border-x border-b border-zinc-800 rounded-b-[32px]">
+              <div className="flex gap-4 text-sm text-zinc-400 leading-relaxed">
+                <div
+                  className="w-1 rounded-full opacity-50"
+                  style={{ backgroundColor: accentColor }}
+                />
+                <p className="whitespace-pre-line">{item.a}</p>
               </div>
             </div>
           </motion.div>
@@ -147,71 +130,50 @@ const FAQItem = ({ item, i, accentColor }) => {
   );
 };
 
-const FAQ = () => {
-  const { scrollYProgress } = useScroll();
+/* ================= MAIN FAQ ================= */
 
-  // Transitions: 
-  // Background: White -> Black
-  // Accents: Orange (#f97316) -> Blue (#3b82f6)
-  const backgroundColor = useTransform(scrollYProgress, [0.7, 0.8], ["#ffffff", "#000000"]);
-  const accentColor = useTransform(scrollYProgress, [0.7, 0.8], ["#f97316", "#3b82f6"]);
-  const textColor = useTransform(scrollYProgress, [0.7, 0.8], ["#000000", "#ffffff"]);
+const FAQ = () => {
+  const accentColor = "#3b82f6"; // Blue (change to #f97316 for orange)
 
   return (
-    <motion.section 
-      id="faqs" 
-      style={{ backgroundColor }}
-      className="py-32 px-6 transition-colors duration-500"
-    >
+    <section id="faqs" className="py-32 px-6 bg-black">
       <div className="max-w-4xl mx-auto">
+        {/* HEADER */}
         <div className="text-center mb-16">
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="flex items-center justify-center space-x-3 mb-4"
-          >
-            <motion.div style={{ color: accentColor }}>
-                <Radio className="animate-pulse" size={20} />
-            </motion.div>
-            <motion.h4 style={{ color: accentColor }} className="font-black uppercase tracking-[0.3em] text-xs">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Radio className="animate-pulse text-blue-500" size={20} />
+            <h4 className="font-black uppercase tracking-[0.3em] text-xs text-blue-500">
               Pit Radio // FAQ
-            </motion.h4>
-          </motion.div>
-          
-          <motion.h2 
-            style={{ color: textColor }}
-            className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase"
-          >
-            The <motion.span style={{ color: accentColor }}>Briefing</motion.span>
-          </motion.h2>
-        </div>
-        
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <FAQItem key={i} item={faq} i={i} accentColor={accentColor} />
-          ))}
+            </h4>
+          </div>
+
+          <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter text-white">
+            The <span style={{ color: accentColor }}>Briefing</span>
+          </h2>
         </div>
 
-        {/* CTA Section */}
-        <motion.div 
-            className="mt-20 p-12 rounded-[50px] bg-zinc-900 text-center relative overflow-hidden group border border-zinc-800"
-        >
-           <motion.div 
-             style={{ backgroundColor: accentColor }}
-             className="absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" 
-           />
-           
-           <div className="relative z-10">
-             <h3 className="text-3xl font-black italic mb-6 text-white uppercase tracking-tighter">
-               Still in the Pits?
-             </h3>
-             <button className="px-12 py-4 bg-white text-black font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-xl">
-               Get In Touch
-             </button>
-           </div>
-        </motion.div>
+        {/* FAQ LIST */}
+        {faqs.map((faq, i) => (
+          <FAQItem key={i} item={faq} index={i} accentColor={accentColor} />
+        ))}
+
+        {/* CTA */}
+        <div className="mt-20 p-12 rounded-[50px] bg-zinc-900 border border-zinc-800 text-center relative overflow-hidden group">
+          <div
+            className="absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500"
+            style={{ backgroundColor: accentColor }}
+          />
+          <div className="relative z-10">
+            <h3 className="text-3xl font-black italic mb-6 text-white uppercase">
+              Still in the Pits?
+            </h3>
+            <button className="px-12 py-4 bg-white text-black font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-xl">
+              Get In Touch
+            </button>
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
