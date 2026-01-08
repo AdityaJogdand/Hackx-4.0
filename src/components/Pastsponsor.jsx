@@ -3,13 +3,10 @@ import { useEffect, useRef } from "react";
 
 /* ===== ASSETS ===== */
 import helmet from "../assets/helmet.png";
-import xangam from "../assets/xangam.png";
-import unstop from "../assets/unstop (1).png";
-import etttara from "../assets/etttara.png";
-import lab from "../assets/learn.png";
-import veda from "../assets/veda.webp";
-import admit from "../assets/admit.png";
-import drilldown from "../assets/drilldown.png";
+
+import codecrafter from "../assets/codecrafter.png";
+import cosmeon from "../assets/cosmeon.png";
+import xyz from "../assets/xyz.png";
 
 export default function Pastsponsor() {
   const containerRef = useRef(null);
@@ -69,10 +66,10 @@ export default function Pastsponsor() {
         <header className="mb-32 text-center md:text-left">
           <motion.div style={{ color: textColor }}>
             <p className="text-orange-500 font-bold tracking-[0.3em] uppercase mb-4 text-sm">
-              Our Legacy
+              Our Partners
             </p>
             <h2 className="text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.9]">
-              Past <br />
+              Our <br />
               <span className="text-orange-500 italic">Sponsors</span>
             </h2>
           </motion.div>
@@ -80,17 +77,6 @@ export default function Pastsponsor() {
 
         {/* ================= TIERS ================= */}
         <div className="flex flex-col gap-28">
-          {/* TITLE PARTNER */}
-          <div className="flex flex-col items-center">
-            <motion.p
-              style={{ color: textColor }}
-              className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
-            >
-              Title Partner
-            </motion.p>
-            <TierItem src={xangam} size="h-32 md:h-44" delay={0.1} />
-          </div>
-
           {/* POWERED BY */}
           <div className="flex flex-col items-center">
             <motion.p
@@ -99,21 +85,34 @@ export default function Pastsponsor() {
             >
               Powered By
             </motion.p>
-            <TierItem src={unstop} size="h-16 md:h-24" delay={0.2} />
+            <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
           </div>
 
-          {/* ASSOCIATE PARTNERS */}
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 mt-10">
-            <TierItem src={etttara} size="h-12 md:h-16" delay={0.3} />
-            <TierItem src={lab} size="h-12 md:h-16" delay={0.4} />
-            <TierItem src={veda} size="h-12 md:h-16" delay={0.5} />
-            <TierItem src={admit} size="h-12 md:h-16" delay={0.6} />
-            <TierItem src={drilldown} size="h-12 md:h-16" delay={0.7} />
+          {/* HIRING PARTNER (BIGGER) */}
+          <div className="flex flex-col items-center">
+            <motion.p
+              style={{ color: textColor }}
+              className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
+            >
+              Hiring Partner
+            </motion.p>
+            <TierItem src={cosmeon} size="h-40 md:h-44" delay={0.2} />
+          </div>
+
+          {/* DOMAIN PARTNER */}
+          <div className="flex flex-col items-center">
+            <motion.p
+              style={{ color: textColor }}
+              className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
+            >
+              Domain Partner
+            </motion.p>
+            <TierItem src={xyz} size="h-20 md:h-28" delay={0.3} />
           </div>
         </div>
       </div>
 
-      {/* ================= BACKGROUND HELMET (DESKTOP ONLY) ================= */}
+      {/* ================= BACKGROUND HELMET ================= */}
       <motion.div
         style={{ y: helmetY, scale: helmetScale, x: "-50%" }}
         className="hidden md:block absolute bottom-[-20%] left-1/2 pointer-events-none -z-0 opacity-20"
