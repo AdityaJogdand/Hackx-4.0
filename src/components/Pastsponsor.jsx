@@ -100,7 +100,7 @@ export default function Pastsponsor() {
           </div>
 
           {/* DOMAIN PARTNER */}
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
             <motion.p
               style={{ color: textColor }}
               className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
@@ -108,7 +108,7 @@ export default function Pastsponsor() {
               Domain Partner
             </motion.p>
             <TierItem src={xyz} size="h-20 md:h-28" delay={0.3} />
-          </div>
+          </div> */}
         </div>
       </div>
 
