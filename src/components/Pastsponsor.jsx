@@ -6,7 +6,7 @@ import helmet from "../assets/helmet.png";
 import codecrafter from "../assets/codecrafter.png";
 import cosmeon from "../assets/cosmeon.png";
 import curvet from "../assets/curvet.png";
-import unstop from "../assets/unstop.png"; // ✅ added
+import unstop from "../assets/unstop.png";
 
 export default function Pastsponsor() {
   const containerRef = useRef(null);
@@ -87,14 +87,42 @@ export default function Pastsponsor() {
             </motion.p>
 
             <div className="flex items-center gap-20 flex-wrap justify-center">
-              {/* Unstop – guideline compliant */}
+              {/* Curvet with larger white tagline */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.15,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={{ scale: 1.08 }}
+                className="flex flex-col items-center gap-4"
+              >
+                <div className="relative flex items-center justify-center h-20 md:h-28">
+                  <img
+                    src={curvet}
+                    alt="Curvet Logo"
+                    className="h-full w-auto object-contain"
+                  />
 
-              <TierItem src={curvet} size="h-20 md:h-28" delay={0.15} />
+                  {/* subtle glow */}
+                  <div className="absolute -inset-6 bg-orange-500/5 rounded-full blur-2xl opacity-0 hover:opacity-100 transition-opacity duration-500 -z-10" />
+                </div>
+
+                <p className="text-sm md:text-base font-medium tracking-wide text-white text-center opacity-90">
+                  The AI Appstore of the future
+                </p>
+              </motion.div>
+              {/* Unstop */}
               <TierItem
                 src={unstop}
                 size="h-[80px] md:h-[96px] px-8"
                 delay={0.05}
               />
+
+
               <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
             </div>
           </div>
