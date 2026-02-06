@@ -9,7 +9,7 @@ import PastGlimpse from "./components/PastGlimpse";
 import Schedule from "./components/Schedule";
 import FAQ from "./components/FAQ";
 import Rules from "./components/Rules";
-
+ 
 function App() {
   return (
     <>
@@ -24,6 +24,7 @@ function App() {
       <Rules/>
       <FAQ />
       <Footer />
+     
     </>
   );
 }

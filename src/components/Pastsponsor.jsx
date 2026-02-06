@@ -6,7 +6,7 @@ import helmet from "../assets/helmet.png";
 import codecrafter from "../assets/codecrafter.png";
 import cosmeon from "../assets/cosmeon.png";
 import curvet from "../assets/curvet.png";
-// import xyz from "../assets/xyz.png";
+import unstop from "../assets/unstop.png"; // ✅ added
 
 export default function Pastsponsor() {
   const containerRef = useRef(null);
@@ -86,8 +86,15 @@ export default function Pastsponsor() {
               Powered By
             </motion.p>
 
-            <div className="flex items-center gap-16 flex-wrap justify-center">
+            <div className="flex items-center gap-20 flex-wrap justify-center">
+              {/* Unstop – guideline compliant */}
+
               <TierItem src={curvet} size="h-20 md:h-28" delay={0.15} />
+              <TierItem
+                src={unstop}
+                size="h-[80px] md:h-[96px] px-8"
+                delay={0.05}
+              />
               <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
             </div>
           </div>
@@ -100,21 +107,9 @@ export default function Pastsponsor() {
             >
               Hiring Partner
             </motion.p>
+
             <TierItem src={cosmeon} size="h-40 md:h-44" delay={0.2} />
           </div>
-
-          {/* DOMAIN PARTNER (OPTIONAL) */}
-          {/*
-          <div className="flex flex-col items-center">
-            <motion.p
-              style={{ color: textColor }}
-              className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
-            >
-              Domain Partner
-            </motion.p>
-            <TierItem src={xyz} size="h-20 md:h-28" delay={0.3} />
-          </div>
-          */}
         </div>
       </div>
 
