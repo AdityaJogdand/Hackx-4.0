@@ -3,10 +3,10 @@ import { useEffect, useRef } from "react";
 
 /* ===== ASSETS ===== */
 import helmet from "../assets/helmet.png";
-
 import codecrafter from "../assets/codecrafter.png";
 import cosmeon from "../assets/cosmeon.png";
-import xyz from "../assets/xyz.png";
+import curvet from "../assets/curvet.png";
+// import xyz from "../assets/xyz.png";
 
 export default function Pastsponsor() {
   const containerRef = useRef(null);
@@ -85,10 +85,14 @@ export default function Pastsponsor() {
             >
               Powered By
             </motion.p>
-            <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
+
+            <div className="flex items-center gap-16 flex-wrap justify-center">
+              <TierItem src={curvet} size="h-20 md:h-28" delay={0.15} />
+              <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
+            </div>
           </div>
 
-          {/* HIRING PARTNER (BIGGER) */}
+          {/* HIRING PARTNER */}
           <div className="flex flex-col items-center">
             <motion.p
               style={{ color: textColor }}
@@ -99,8 +103,9 @@ export default function Pastsponsor() {
             <TierItem src={cosmeon} size="h-40 md:h-44" delay={0.2} />
           </div>
 
-          {/* DOMAIN PARTNER */}
-          {/* <div className="flex flex-col items-center">
+          {/* DOMAIN PARTNER (OPTIONAL) */}
+          {/*
+          <div className="flex flex-col items-center">
             <motion.p
               style={{ color: textColor }}
               className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
@@ -108,7 +113,8 @@ export default function Pastsponsor() {
               Domain Partner
             </motion.p>
             <TierItem src={xyz} size="h-20 md:h-28" delay={0.3} />
-          </div> */}
+          </div>
+          */}
         </div>
       </div>
 
@@ -128,7 +134,6 @@ export default function Pastsponsor() {
 }
 
 /* ================= LOGO ITEM ================= */
-
 function TierItem({ src, size, delay }) {
   return (
     <motion.div
