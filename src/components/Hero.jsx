@@ -342,9 +342,11 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-6 md:mt-8 mb-6 md:mb-[30px] flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto px-4"
         >
-          <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-gray-200 hover:bg-gray-300 shadow-md transition-colors">
-            Register Now
-          </button>
+         <a href="https://unstop.com/hackathons/hackx-40-nmims-navi-mumbai-1621356" className="w-full sm:w-auto">
+            <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-gray-200 hover:bg-gray-300 shadow-md transition-colors">
+              Register Now
+            </button>
+          </a>
           <a href="#schedule" className="w-full sm:w-auto">
             <button className="w-full px-6 py-3 rounded-full bg-red-600 text-white hover:bg-red-700 shadow-lg transition-colors">
               View Schedule
