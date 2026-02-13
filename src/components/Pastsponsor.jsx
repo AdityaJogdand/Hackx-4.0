@@ -7,6 +7,8 @@ import codecrafter from "../assets/codecrafter.png";
 import cosmeon from "../assets/cosmeon.png";
 import curvet from "../assets/curvet.png";
 import unstop from "../assets/unstop.png";
+import osen from "../assets/OSEN.png";
+import logitech from "../assets/logitech.png";
 
 export default function Pastsponsor() {
   const containerRef = useRef(null);
@@ -60,14 +62,11 @@ export default function Pastsponsor() {
       style={{ backgroundColor: bgColor }}
       className="relative min-h-screen py-32 overflow-hidden selection:bg-orange-500/30"
     >
-      {/* ================= CONTENT ================= */}
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        {/* HEADER */}
+        
+        {/* ================= HEADER ================= */}
         <header className="mb-32 text-center md:text-left">
           <motion.div style={{ color: textColor }}>
-            <p className="text-orange-500 font-bold tracking-[0.3em] uppercase mb-4 text-sm">
-              Our Partners
-            </p>
             <h2 className="text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.9]">
               Our <br />
               <span className="text-orange-500 italic">Sponsors</span>
@@ -75,9 +74,9 @@ export default function Pastsponsor() {
           </motion.div>
         </header>
 
-        {/* ================= TIERS ================= */}
         <div className="flex flex-col gap-28">
-          {/* POWERED BY */}
+
+          {/* ================= POWERED BY ================= */}
           <div className="flex flex-col items-center">
             <motion.p
               style={{ color: textColor }}
@@ -87,47 +86,39 @@ export default function Pastsponsor() {
             </motion.p>
 
             <div className="flex items-center gap-20 flex-wrap justify-center">
-              {/* Curvet with larger white tagline */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.15,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                whileHover={{ scale: 1.08 }}
-                className="flex flex-col items-center gap-4"
-              >
-                <div className="relative flex items-center justify-center h-20 md:h-28">
-                  <img
-                    src={curvet}
-                    alt="Curvet Logo"
-                    className="h-full w-auto object-contain"
-                  />
-
-                  {/* subtle glow */}
-                  <div className="absolute -inset-6 bg-orange-500/5 rounded-full blur-2xl opacity-0 hover:opacity-100 transition-opacity duration-500 -z-10" />
-                </div>
-
-                <p className="text-sm md:text-base font-medium tracking-wide text-white text-center opacity-90">
-                  The AI Appstore of the future
-                </p>
-              </motion.div>
-              {/* Unstop */}
-              <TierItem
-                src={unstop}
-                size="h-[80px] md:h-[96px] px-8"
-                delay={0.05}
-              />
-
-
+              
+              <TierItem src={curvet} size="h-20 md:h-28" delay={0.05} />
               <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
+              <TierItem src={osen} size="h-32 md:h-28" delay={0.15} />
+
             </div>
           </div>
 
-          {/* HIRING PARTNER */}
+          {/* ================= GADGET PARTNER ================= */}
+          <div className="flex flex-col items-center">
+            <motion.p
+              style={{ color: textColor }}
+              className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
+            >
+              Gadget Partner
+            </motion.p>
+
+            <TierItem src={logitech} size="h-28 md:h-36" delay={0.2} />
+          </div>
+
+          {/* ================= HOSTING PARTNER ================= */}
+          <div className="flex flex-col items-center">
+            <motion.p
+              style={{ color: textColor }}
+              className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
+            >
+              Hosting Partner
+            </motion.p>
+
+            <TierItem src={unstop} size="h-28 md:h-36" delay={0.25} />
+          </div>
+
+          {/* ================= HIRING PARTNER ================= */}
           <div className="flex flex-col items-center">
             <motion.p
               style={{ color: textColor }}
@@ -136,8 +127,9 @@ export default function Pastsponsor() {
               Hiring Partner
             </motion.p>
 
-            <TierItem src={cosmeon} size="h-40 md:h-44" delay={0.2} />
+            <TierItem src={cosmeon} size="h-40 md:h-44" delay={0.3} />
           </div>
+
         </div>
       </div>
 
@@ -163,11 +155,7 @@ function TierItem({ src, size, delay }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.8,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={{ duration: 0.8, delay }}
       whileHover={{ scale: 1.08 }}
       className={`relative flex items-center justify-center ${size}`}
     >
@@ -177,7 +165,6 @@ function TierItem({ src, size, delay }) {
         className="h-full w-auto object-contain"
       />
 
-      {/* subtle glow */}
       <div className="absolute -inset-6 bg-orange-500/5 rounded-full blur-2xl opacity-0 hover:opacity-100 transition-opacity duration-500 -z-10" />
     </motion.div>
   );

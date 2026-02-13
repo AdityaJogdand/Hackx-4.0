@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "Is there a registration fee?",
-    a: "Yes, there is a refundable registration fee of ₹500 per team."
+    a: "Yes, there is a refundable registration fee of ₹600 per team."
   },
   {
     q: "What is the refund timeline?",
