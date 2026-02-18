@@ -9,6 +9,8 @@ import curvet from "../assets/curvet.png";
 import unstop from "../assets/unstop.png";
 import osen from "../assets/OSEN.png";
 import logitech from "../assets/logitech.png";
+import hackculture from "../assets/hackculture.png";
+
 
 export default function Pastsponsor() {
   const containerRef = useRef(null);
@@ -105,6 +107,19 @@ export default function Pastsponsor() {
 
             <TierItem src={logitech} size="h-28 md:h-36" delay={0.2} />
           </div>
+
+          {/* ================= HACKATHON PARTNER ================= */}
+          <div className="flex flex-col items-center">
+            <motion.p
+              style={{ color: textColor }}
+              className="text-[11px] uppercase tracking-[0.4em] font-black mb-10 text-orange-500"
+            >
+              Hackathon Partner
+            </motion.p>
+
+            <TierItem src={hackculture} size="h-28 md:h-36" delay={0.35} />
+          </div>
+
 
           {/* ================= HOSTING PARTNER ================= */}
           <div className="flex flex-col items-center">
