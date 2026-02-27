@@ -9,7 +9,8 @@ const problems = [
     subtitle: "Production-Ready Gatekeeper",
     tag: "AI / Security",
     accent: "#dc2626",
-    summary: "Build an automated gatekeeper that scans AI-generated (vibe-coded) repos and produces a structured Go/No-Go production readiness report covering secrets, compliance, and dependencies.",
+    summary:
+      "Build an automated gatekeeper that scans AI-generated (vibe-coded) repos and produces a structured Go/No-Go production readiness report covering secrets, compliance, and dependencies.",
     full: `THE VIBE-AUDIT
 
 CHALLENGE
@@ -34,7 +35,8 @@ A comprehensive "Vibe-to-Value" score along with actionable auto-remediation pro
     subtitle: "Hot-Swappable Expert Plugin",
     tag: "AI / Agents",
     accent: "#71717a",
-    summary: "Design a universal skill plugin that injects specialized domain knowledge and structured reasoning into any AI agent framework, enforcing source-of-truth citations and domain-specific decision trees.",
+    summary:
+      "Design a universal skill plugin that injects specialized domain knowledge and structured reasoning into any AI agent framework, enforcing source-of-truth citations and domain-specific decision trees.",
     full: `THE SME-PLUG
 
 CHALLENGE
@@ -62,7 +64,8 @@ A scalable, plug-and-play expert module adaptable to complex industry use cases.
     subtitle: "End-to-End Event Platform",
     tag: "SaaS / Ops",
     accent: "#e11d48",
-    summary: "Build a centralized multi-branch banquet management platform covering lead tracking, real-time booking, event coordination, vendor management, billing automation, and analytics dashboards.",
+    summary:
+      "Build a centralized multi-branch banquet management platform covering lead tracking, real-time booking, event coordination, vendor management, billing automation, and analytics dashboards.",
     full: `BANQUET MANAGEMENT SYSTEM
 
 BACKGROUND
@@ -81,7 +84,6 @@ OBJECTIVE
 Develop a comprehensive banquet management software that is simple and user-friendly for non-technical managers.
 
 MANDATORY FEATURES (MVP)
-
 Multi-Branch Management
 • Centralized owner dashboard
 • Branch-level access control
@@ -133,7 +135,8 @@ BONUS FEATURES
     subtitle: "Centralized Feedback Intelligence",
     tag: "Analytics / CX",
     accent: "#ea580c",
-    summary: "Develop a centralized platform that aggregates reviews from Google, Zomato, and internal forms, auto-categorizes feedback, generates AI-assisted responses, and provides branch/staff performance insights.",
+    summary:
+      "Develop a centralized platform that aggregates reviews from Google, Zomato, and internal forms, auto-categorizes feedback, generates AI-assisted responses, and provides branch/staff performance insights.",
     full: `REVIEW MANAGEMENT SYSTEM
 
 BACKGROUND
@@ -152,7 +155,6 @@ OBJECTIVE
 Develop a centralized Review Management System that aggregates reviews, enables structured collection through a mobile app, categorizes automatically, and provides automated reply options.
 
 MANDATORY FEATURES (MVP)
-
 Centralized Review Dashboard
 • Unified view of all reviews (internal + external platforms)
 • Branch-level filtering and access control
@@ -195,7 +197,8 @@ BONUS FEATURES
     subtitle: "Orbital File System Simulation",
     tag: "Distributed",
     accent: "#0284c7",
-    summary: "Build a lightweight distributed file system simulation that splits files into chunks, distributes them across simulated satellite nodes, and reconstructs files on demand with integrity checks and failure simulation.",
+    summary:
+      "Build a lightweight distributed file system simulation that splits files into chunks, distributes them across simulated satellite nodes, and reconstructs files on demand with integrity checks and failure simulation.",
     full: `COSMEON FS-LITE (ORBITAL FILE SYSTEM SIMULATION)
 
 PROBLEM SUMMARY
@@ -222,7 +225,8 @@ OPTIONAL ENHANCEMENTS
     subtitle: "Climate Risk from Orbital Data",
     tag: "ML / Geo",
     accent: "#059669",
-    summary: "Build a pipeline that ingests open satellite imagery (Sentinel/Landsat), performs automated flood detection and environmental risk analysis using ML, and outputs structured decision-ready climate risk insights.",
+    summary:
+      "Build a pipeline that ingests open satellite imagery (Sentinel/Landsat), performs automated flood detection and environmental risk analysis using ML, and outputs structured decision-ready climate risk insights.",
     full: `SATELLITE DATA TO INSIGHT ENGINE FOR CLIMATE RISK
 
 PROBLEM SUMMARY
@@ -253,86 +257,100 @@ function PSModal({ ps, onClose }) {
     document.body.style.left = "0";
     document.body.style.right = "0";
     document.body.style.overflow = "hidden";
+    document.body.style.width = "100%";
     return () => {
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.left = "";
       document.body.style.right = "";
       document.body.style.overflow = "";
+      document.body.style.width = "";
       window.scrollTo(0, scrollY);
     };
   }, []);
 
   return (
     <AnimatePresence>
+      {/* Backdrop */}
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6"
+        key="backdrop"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
         onClick={onClose}
       >
-        {/* Backdrop */}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-
+        {/* Modal container */}
         <motion.div
-          className="relative z-10 w-full max-w-2xl max-h-[90vh] bg-white border border-zinc-200 rounded-sm overflow-hidden shadow-2xl flex flex-col"
-          initial={{ scale: 0.93, y: 24, opacity: 0 }}
-          animate={{ scale: 1, y: 0, opacity: 1 }}
-          exit={{ scale: 0.93, y: 24, opacity: 0 }}
-          transition={{ type: "spring", damping: 26, stiffness: 320 }}
+          key="modal"
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="relative bg-white w-full max-w-2xl rounded-xl shadow-2xl flex flex-col"
+          style={{ maxHeight: "85vh", height: "85vh" }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Top accent bar */}
-          <div className="h-1 w-full flex-shrink-0" style={{ background: ps.accent }} />
+          <div
+            className="h-1 rounded-t-xl flex-shrink-0"
+            style={{ backgroundColor: ps.accent }}
+          />
 
-          {/* Header */}
-          <div className="px-4 sm:px-6 pt-4 pb-3 border-b border-zinc-100 flex-shrink-0">
-            <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-                    PS-{String(ps.id).padStart(2, "0")}
-                  </span>
-                  <span
-                    className="text-xs px-2 py-0.5 rounded-full border font-bold uppercase tracking-wider"
-                    style={{ color: ps.accent, borderColor: ps.accent + "40", background: ps.accent + "10" }}
-                  >
-                    {ps.tag}
-                  </span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-black uppercase italic tracking-tight text-zinc-900 leading-tight">
-                  {ps.title}
-                </h3>
-                <p className="text-xs text-zinc-400 mt-0.5 font-medium">{ps.org}</p>
-              </div>
-              <button
-                onClick={onClose}
-                className="shrink-0 w-8 h-8 flex items-center justify-center rounded-sm border border-zinc-200 text-zinc-400 hover:text-zinc-700 hover:border-zinc-400 transition-colors text-sm"
+          {/* Header — fixed, does NOT scroll */}
+          <div className="px-6 pt-5 pb-4 flex-shrink-0">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-mono text-zinc-400 tracking-widest">
+                PS-{String(ps.id).padStart(2, "0")}
+              </span>
+              <span
+                className="text-xs border rounded-full px-2.5 py-0.5 font-medium"
+                style={{ borderColor: ps.accent, color: ps.accent }}
               >
-                ✕
-              </button>
+                {ps.tag}
+              </span>
             </div>
+            <h2 className="text-2xl font-black tracking-tight uppercase">
+              {ps.title}
+            </h2>
+            <p className="text-sm text-zinc-500 mt-0.5">{ps.org}</p>
+
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg text-zinc-400 hover:text-zinc-700 hover:bg-zinc-100 transition-colors"
+            >
+              ✕
+            </button>
           </div>
 
+          <div className="border-t border-zinc-100 flex-shrink-0" />
+
           {/* Scrollable content */}
-          <div className="overflow-y-scroll px-4 sm:px-6 py-5 bg-zinc-50" style={{ maxHeight: "55vh", scrollbarWidth: "thin", scrollbarColor: ps.accent + " #f4f4f5", overscrollBehavior: "contain" }}>
-            <div className="font-mono text-xs sm:text-sm text-zinc-700 leading-relaxed whitespace-pre-wrap">
+          <div
+            className="overflow-y-auto flex-1 px-6 py-5"
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
+          >
+            <pre className="font-mono text-sm whitespace-pre-wrap text-zinc-700 leading-relaxed">
               {ps.full.split("\n").map((line, i) => {
-                const isBold = /^[A-Z][A-Z\s\(\)\/&\-]+[A-Z\)]$/.test(line.trim()) && line.trim().length > 2;
+                const isSectionHeader =
+                  /^[A-Z][A-Z\s\(\)\/&\-]+$/.test(line.trim()) &&
+                  line.trim().length > 2 &&
+                  !line.trim().startsWith("•");
                 return (
                   <span key={i}>
-                    {isBold ? (
-                      <strong className="font-bold text-zinc-900">{line}</strong>
-                    ) : line}
+                    {isSectionHeader ? (
+                      <strong className="text-zinc-900">{line}</strong>
+                    ) : (
+                      line
+                    )}
                     {"\n"}
                   </span>
                 );
               })}
-            </div>
+            </pre>
           </div>
-
-          <div className="h-px w-full flex-shrink-0 bg-zinc-100" />
         </motion.div>
       </motion.div>
     </AnimatePresence>
@@ -346,73 +364,57 @@ function PSCard({ ps, index, onClick }) {
   return (
     <motion.div
       ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
       onClick={onClick}
-      className="group relative cursor-pointer bg-white border border-zinc-200 hover:border-zinc-400 rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col"
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-      }}
+      className="relative bg-white border border-zinc-200 rounded-xl overflow-hidden cursor-pointer group hover:shadow-lg transition-shadow duration-300"
     >
       {/* Top accent stripe */}
-      <div className="h-0.5 w-full" style={{ background: ps.accent }} />
+      <div className="h-1" style={{ backgroundColor: ps.accent }} />
 
       {/* Left subtle accent */}
-      <div className="absolute left-0 top-0 w-0.5 h-full opacity-30" style={{ background: ps.accent }} />
+      <div
+        className="absolute left-0 top-1 bottom-0 w-0.5 opacity-30"
+        style={{ backgroundColor: ps.accent }}
+      />
 
-      <div className="pl-5 pr-4 pt-4 pb-5 flex flex-col h-full">
+      <div className="p-5">
         {/* Row 1: PS number left, tag badge right */}
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-zinc-300 shrink-0">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-mono text-zinc-400 tracking-widest">
             PS-{String(ps.id).padStart(2, "0")}
           </span>
           <span
-            className="text-xs px-2 py-0.5 rounded-full border font-bold uppercase tracking-wider shrink-0"
-            style={{ color: ps.accent, borderColor: ps.accent + "40", background: ps.accent + "10" }}
+            className="text-xs border rounded-full px-2.5 py-0.5 font-medium"
+            style={{ borderColor: ps.accent, color: ps.accent }}
           >
             {ps.tag}
           </span>
         </div>
 
         {/* Org */}
-        <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">
-          {ps.org}
-        </p>
+        <p className="text-xs text-zinc-400 mb-1">{ps.org}</p>
 
         {/* Title */}
-        <h3
-          className="text-base font-black uppercase italic tracking-tight text-zinc-900 leading-snug mb-1 transition-colors duration-200"
-          style={{ "--hover-color": ps.accent }}
-        >
-          <span className="group-hover:text-[var(--hover-color)] transition-colors duration-200">
-            {ps.title}
-          </span>
+        <h3 className="text-lg font-black tracking-tight uppercase text-zinc-900 mb-0.5">
+          {ps.title}
         </h3>
 
         {/* Subtitle */}
-        <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-3">
-          {ps.subtitle}
-        </p>
+        <p className="text-sm font-medium text-zinc-500 mb-3">{ps.subtitle}</p>
 
         {/* Summary */}
-        <p
-          className="text-sm text-zinc-500 leading-relaxed flex-1"
-          style={{
-            display: "-webkit-box",
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-          }}
-        >
+        <p className="text-sm text-zinc-600 leading-relaxed line-clamp-3">
           {ps.summary}
         </p>
 
         {/* CTA */}
         <div
-          className="mt-4 flex items-center gap-1 text-xs font-bold uppercase tracking-widest"
+          className="mt-4 text-xs font-semibold tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all"
           style={{ color: ps.accent }}
         >
-          View Full PS
-          <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
+          View Full PS →
         </div>
       </div>
     </motion.div>
@@ -425,58 +427,41 @@ export default function ProblemStatements() {
   const [activePS, setActivePS] = useState(null);
 
   return (
-    <div
-      id="problems"
-      ref={ref}
-      className="min-h-screen bg-white relative overflow-hidden py-16 sm:py-20 px-4 sm:px-6 lg:px-8"
-    >
+    <div className="min-h-screen bg-zinc-50 py-16 px-4">
       {/* Racing stripes */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50" />
-      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-50" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-zinc-400 to-green-600" />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.15 } },
-          }}
-          className="text-center mb-12 sm:mb-14"
+      {/* Header */}
+      <div ref={ref} className="max-w-5xl mx-auto mb-12 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
+          className="text-xs font-mono tracking-widest text-zinc-400 uppercase mb-2"
         >
-          <motion.p
-            variants={{ hidden: { opacity: 0, y: -16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
-            className="text-xs font-bold uppercase tracking-[0.3em] text-red-500 mb-3"
-          >
-            HackX 4.0 · Official Release
-          </motion.p>
-          <motion.h2
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black uppercase italic tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-600"
-          >
-            Problem Statements
-          </motion.h2>
-          <motion.div
-            variants={{ hidden: { opacity: 0, scaleX: 0 }, visible: { opacity: 1, scaleX: 1, transition: { duration: 0.6, ease: "easeOut" } } }}
-            className="mt-4 h-px w-32 mx-auto bg-gradient-to-r from-transparent via-red-500 to-transparent origin-center"
-          />
-        </motion.div>
-
-        {/* Responsive card grid */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } } }}
+          HackX 4.0 · Official Release
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900 uppercase"
         >
-          {problems.map((ps, i) => (
-            <PSCard key={ps.id} ps={ps} index={i} onClick={() => setActivePS(ps)} />
-          ))}
-        </motion.div>
+          Problem Statements
+        </motion.h1>
       </div>
 
-      {activePS && <PSModal ps={activePS} onClose={() => setActivePS(null)} />}
+      {/* Responsive card grid */}
+      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {problems.map((ps, i) => (
+          <PSCard key={ps.id} ps={ps} index={i} onClick={() => setActivePS(ps)} />
+        ))}
+      </div>
+
+      {/* Modal */}
+      {activePS && (
+        <PSModal ps={activePS} onClose={() => setActivePS(null)} />
+      )}
     </div>
   );
 }
