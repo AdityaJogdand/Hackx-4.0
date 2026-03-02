@@ -92,11 +92,11 @@ export default function Pastsponsor() {
 
             <div className="flex items-center gap-20 flex-wrap justify-center">
 
-              <TierItem src={curvet} size="h-20 md:h-28" delay={0.05} />
-              <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
-              <TierItem src={osen} size="h-32 md:h-28" delay={0.15} />
-              <TierItem src={prasadLogo} size="h-20 md:h-28" delay={0.2} />
-              <TierItem src={reliance} size="h-20 md:h-28" delay={0.25} extraClasses="bg-white p-[2px] pt-2 rounded" />
+              <TierItem src={curvet} size="h-24 md:h-32" delay={0.05} />
+              <TierItem src={reliance} size="h-24 md:h-32" delay={0.1} extraClasses="bg-white p-[2px] pt-2 rounded" />
+              <TierItem src={codecrafter} size="h-24 md:h-32" delay={0.15} />
+              <TierItem src={osen} size="h-36 md:h-36" delay={0.2} />
+              <TierItem src={prasadLogo} size="h-24 md:h-32" delay={0.25} />
 
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function Pastsponsor() {
               Gadget Partner
             </motion.p>
 
-            <TierItem src={logitech} size="h-28 md:h-36" delay={0.2} />
+            <TierItem src={logitech} size="h-32 md:h-40" delay={0.2} />
           </div>
 
           {/* ================= HACKATHON PARTNER ================= */}
@@ -122,7 +122,7 @@ export default function Pastsponsor() {
               Hackathon Partner
             </motion.p>
 
-            <TierItem src={hackculture} size="h-28 md:h-36" delay={0.35} />
+            <TierItem src={hackculture} size="h-32 md:h-40" delay={0.35} />
           </div>
 
 
@@ -135,7 +135,7 @@ export default function Pastsponsor() {
               Hosting Partner
             </motion.p>
 
-            <TierItem src={unstop} size="h-28 md:h-36" delay={0.25} />
+            <TierItem src={unstop} size="h-32 md:h-40" delay={0.25} />
           </div>
 
           {/* ================= HIRING PARTNER ================= */}
@@ -147,7 +147,7 @@ export default function Pastsponsor() {
               Hiring Partner
             </motion.p>
 
-            <TierItem src={cosmeon} size="h-40 md:h-44" delay={0.3} />
+            <TierItem src={cosmeon} size="h-44 md:h-48" delay={0.3} />
           </div>
 
         </div>
