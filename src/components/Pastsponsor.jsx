@@ -10,6 +10,9 @@ import unstop from "../assets/unstop.png";
 import osen from "../assets/OSEN.png";
 import logitech from "../assets/logitech.png";
 import hackculture from "../assets/hackculture.png";
+import prasadLogo from "../assets/Prasad_Logo.jpg";
+import reliance from "../assets/reliance.png";
+
 
 
 export default function Pastsponsor() {
@@ -65,7 +68,7 @@ export default function Pastsponsor() {
       className="relative min-h-screen py-32 overflow-hidden selection:bg-orange-500/30"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        
+
         {/* ================= HEADER ================= */}
         <header className="mb-32 text-center md:text-left">
           <motion.div style={{ color: textColor }}>
@@ -88,10 +91,12 @@ export default function Pastsponsor() {
             </motion.p>
 
             <div className="flex items-center gap-20 flex-wrap justify-center">
-              
+
               <TierItem src={curvet} size="h-20 md:h-28" delay={0.05} />
               <TierItem src={codecrafter} size="h-20 md:h-28" delay={0.1} />
               <TierItem src={osen} size="h-32 md:h-28" delay={0.15} />
+              <TierItem src={prasadLogo} size="h-20 md:h-28" delay={0.2} />
+              <TierItem src={reliance} size="h-20 md:h-28" delay={0.25} extraClasses="bg-white p-[2px] pt-2 rounded" />
 
             </div>
           </div>
@@ -164,7 +169,7 @@ export default function Pastsponsor() {
 }
 
 /* ================= LOGO ITEM ================= */
-function TierItem({ src, size, delay }) {
+function TierItem({ src, size, delay, extraClasses = "" }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -172,7 +177,7 @@ function TierItem({ src, size, delay }) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8, delay }}
       whileHover={{ scale: 1.08 }}
-      className={`relative flex items-center justify-center ${size}`}
+      className={`relative flex items-center justify-center ${size} ${extraClasses}`}
     >
       <img
         src={src}
